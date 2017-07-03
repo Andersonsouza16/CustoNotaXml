@@ -17,6 +17,7 @@ public class Main {
     static ProdutoCtrl produtoCtrl;
     static List<Produto> listaProdutos;
     static List <ImpostoProduto> listaTotalProdutosIpi;
+    static Calculo calculo;
     
     static Map <String,List<Produto>> mapaProdutoIpi;
         
@@ -24,6 +25,7 @@ public class Main {
        
         produtoCtrl = new ProdutoCtrl();
         CalcularImposto ci = new CalcularImposto(); //ojeto da classe calcular imposto
+        calculo = new Calculo();
         
         listaProdutos = produtoCtrl.montarObjProduto();
         //ci.listarIpi(listaProdutos);
@@ -36,11 +38,14 @@ public class Main {
         
         listaTotalProdutosIpi = ci.buscarTotalProdutosIpi(mapaProdutoIpi);
         
+        calculo.calcular(listaTotalProdutosIpi);
+        
+        /*
         for(ImpostoProduto ip: listaTotalProdutosIpi ){
             System.out.println("ALIQUOTA: " + ip.getAliqIpi() + "TOTAL = " + ip.getValorTotalProdutos());
         }
         
-        /*
+        
         double valorTotaProdutos = 0;
         double valorTotalIcms = 0;
         double ValorTotalIpi = 0;
