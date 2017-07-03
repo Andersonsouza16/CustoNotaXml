@@ -89,6 +89,8 @@ public class Calculo {
         System.out.printf("PERCENTUAL = %.3f \n" , percentual);
         System.out.printf("COMPLEMENTO = %.2f \n" , vComplemento);
         
+        System.out.println("ffff");
+        
     }
     
     
