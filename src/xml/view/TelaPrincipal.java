@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.UnsupportedLookAndFeelException;
+import xml.Main;
 
 /**
  *
@@ -227,4 +228,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuAbrir;
     private javax.swing.JFileChooser seletorArquivo;
     // End of variables declaration//GEN-END:variables
+
+    private void chamarClassePricipal(String caminhoArquivo){
+        
+        
+        
+    }
+
 }

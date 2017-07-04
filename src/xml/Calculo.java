@@ -52,9 +52,9 @@ public class Calculo {
         outrasDespesas = 0.0;
         
         
-        icmsInterestadual = 4.0 /100;        
+        icmsInterestadual = 0.0 /100;        
         
-        multiplicadorValorFornec = 2.0;       
+        multiplicadorValorFornec = 2.5;       
         
         
         for(ImpostoProduto ip: listaTotalProdutosIpi){

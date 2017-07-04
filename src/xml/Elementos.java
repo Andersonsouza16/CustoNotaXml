@@ -52,7 +52,7 @@ public class Elementos {
         Document doc = null;
         SAXBuilder builder = new SAXBuilder();
         try {//arquivo XML
-            doc = builder.build("arquivo.xml");
+            doc = builder.build("xml//artframe.xml");
         } catch (JDOMException e) {
             e.printStackTrace();
         } catch (IOException e) {

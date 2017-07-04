@@ -8,10 +8,7 @@ package xml;
 import java.util.List;
 import java.util.Map;
 
-/**
- *
- * @author Jadson
- */
+
 public class Main {
 
     static ProdutoCtrl produtoCtrl;
