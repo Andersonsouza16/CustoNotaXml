@@ -144,6 +144,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
            if (retorno==JFileChooser.APPROVE_OPTION){  
               caminho = abrir.getSelectedFile().getAbsolutePath();  
               caminhoLabel.setText(caminho);
+               chamarClassePricipal(caminho);
            }
     }//GEN-LAST:event_abrirButtonActionPerformed
 
@@ -231,7 +232,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void chamarClassePricipal(String caminhoArquivo){
         
-        
+        Main main = new Main(caminhoArquivo);       
         
     }
 

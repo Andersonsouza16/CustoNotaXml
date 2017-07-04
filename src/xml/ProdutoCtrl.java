@@ -17,12 +17,12 @@ public class ProdutoCtrl {
     Produto produto;
     Elementos elementos;
     
-    public List<Produto> montarObjProduto(){
+    public List<Produto> montarObjProduto(String cainhoArquiho){
         
         elementos = new Elementos();
         
         //preenche uma lista com os produtos em formato de objeto já montado
-        listaProdutos = elementos.obterProdutos();
+        listaProdutos = elementos.obterProdutos(cainhoArquiho);
         
         return listaProdutos;
     }

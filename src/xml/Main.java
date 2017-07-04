@@ -18,13 +18,15 @@ public class Main {
     
     static Map <String,List<Produto>> mapaProdutoIpi;
         
-    public static void main(String[] args) {
+    //public static void main(String[] args) {
        
+    public Main(String cainhoArquiho){
+        
         produtoCtrl = new ProdutoCtrl();
         CalcularImposto ci = new CalcularImposto(); //ojeto da classe calcular imposto
         calculo = new Calculo();
         
-        listaProdutos = produtoCtrl.montarObjProduto();
+        listaProdutos = produtoCtrl.montarObjProduto(cainhoArquiho);
         //ci.listarIpi(listaProdutos);
         
         ci.separarProdutosIpi(listaProdutos);
