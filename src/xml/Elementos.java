@@ -32,19 +32,7 @@ public class Elementos {
     List <Element> icmsCstElement= null;
     List <Element> itensIcmsStElementlIST = null;
     Element ipiElement = null;
-    List <Element> ipiTrib = null;
-    
-    //RETORNA A LISTA DE OBJETOS PRODUTO, QUE FORAM EXTRAÍDOS DO XML
-    public List<Produto> obterProdutos(String cainhoArquiho){
-        
-        List <Element> listProd;
-        
-        listProd = separarElementos(cainhoArquiho);
-                
-        listaProdutosObj = montarListaProdutos(listProd);
-        
-        return listaProdutosObj;
-    }
+    List <Element> ipiTrib = null;      
     
     //FAZ A SEPARAÇÃO DAS TAGS E ELEMENTOS DO XML
     public List<Element> separarElementos (String cainhoArquiho) {

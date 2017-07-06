@@ -15,7 +15,8 @@ import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.UnsupportedLookAndFeelException;
-import xml.Main;
+import xml.Principal;
+
 
 /**
  *
@@ -232,7 +233,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void chamarClassePricipal(String caminhoArquivo){
         
-        Main main = new Main(caminhoArquivo);       
+        Principal principal = new Principal(caminhoArquivo);  
+        principal.main();
         
     }
 

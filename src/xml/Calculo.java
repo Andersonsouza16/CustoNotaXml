@@ -14,11 +14,11 @@ import java.util.List;
 public class Calculo {
     
     //VALORES REIAS
-    static Double multiplicadorValorFornec; //multiplicador para aplicar no valor da nf para chegar no preço do fornecedor ex. x2
-    static Double vProdNf;
-    static Double diferencaAliquota;
-    static Double vRateioEntrada;
-    static Double vComplemento;
+    static double multiplicadorValorFornec; //multiplicador para aplicar no valor da nf para chegar no preço do fornecedor ex. x2
+    static double vProdNf;
+    static double diferencaAliquota;
+    static double vRateioEntrada;
+    static double vComplemento;
     static double valorForcedor;
     
     //VALORES PERCENTUAIS
@@ -40,7 +40,7 @@ public class Calculo {
     static double parcial4;
     
     ImpostoProduto impostoProduto;
-    CalcularImposto calcularImposto;
+    SepararPorImposto calcularImposto;
     
     public void calcular (List <ImpostoProduto> listaTotalProdutosIpi) {
         
@@ -52,9 +52,9 @@ public class Calculo {
         outrasDespesas = 0.0;
         
         
-        icmsInterestadual = 0.0 /100;        
+        icmsInterestadual = 4 /100;        
         
-        multiplicadorValorFornec = 2.5;       
+        multiplicadorValorFornec = 2.6086707;       
         
         
         for(ImpostoProduto ip: listaTotalProdutosIpi){
