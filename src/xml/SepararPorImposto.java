@@ -16,10 +16,8 @@ import java.util.Map;
  * 
  * 
  */
-public class CalcularImposto {
-    
-    static ProdutoCtrl produtoCtrl;
-    
+public class SepararPorImposto {
+           
     List <String> aliqIpiPresentes;
     List <Produto> listaProdutoPorIpi;
     String ipiAliquota;

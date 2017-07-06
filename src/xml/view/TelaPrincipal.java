@@ -15,6 +15,9 @@ import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.UnsupportedLookAndFeelException;
+import xml.Principal;
+import xml.Resultado;
+
 
 /**
  *
@@ -43,6 +46,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         caminhoLabel = new javax.swing.JLabel();
         abrirButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        valorProdutosLabel = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        rateioLabel = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuAbrir = new javax.swing.JMenuItem();
@@ -62,6 +69,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setText("Valor dos Proutos");
+
+        valorProdutosLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        valorProdutosLabel.setForeground(new java.awt.Color(255, 0, 0));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setText("Rateio");
+
+        rateioLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        rateioLabel.setForeground(new java.awt.Color(255, 0, 0));
+        rateioLabel.setText(" ");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -74,6 +94,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(abrirButton)
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel4))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(rateioLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
+                    .addComponent(valorProdutosLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -83,7 +113,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(caminhoLabel)
                     .addComponent(abrirButton))
-                .addContainerGap(262, Short.MAX_VALUE))
+                .addGap(82, 82, 82)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(valorProdutosLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(rateioLabel))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
 
         jMenu1.setText("File");
@@ -143,6 +181,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
            if (retorno==JFileChooser.APPROVE_OPTION){  
               caminho = abrir.getSelectedFile().getAbsolutePath();  
               caminhoLabel.setText(caminho);
+               chamarClassePricipal(caminho);
            }
     }//GEN-LAST:event_abrirButtonActionPerformed
 
@@ -219,12 +258,31 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton abrirButton;
     private javax.swing.JLabel caminhoLabel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenuItem menuAbrir;
+    private javax.swing.JLabel rateioLabel;
     private javax.swing.JFileChooser seletorArquivo;
+    private javax.swing.JLabel valorProdutosLabel;
     // End of variables declaration//GEN-END:variables
+
+    Resultado r;
+    
+    private void chamarClassePricipal(String caminhoArquivo){
+        
+        r = new Resultado();
+        
+        Principal principal = new Principal(caminhoArquivo);  
+        r = principal.main();
+        
+        //MOSTRAR RESULTADO NA TELA
+        valorProdutosLabel.setText(Double.toString(r.getValorTotalProdutos()));
+        rateioLabel.setText(Double.toString(r.getRateio()));
+    }
+
 }

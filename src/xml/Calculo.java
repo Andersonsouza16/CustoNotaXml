@@ -14,11 +14,11 @@ import java.util.List;
 public class Calculo {
     
     //VALORES REIAS
-    static Double multiplicadorValorFornec; //multiplicador para aplicar no valor da nf para chegar no preço do fornecedor ex. x2
-    static Double vProdNf;
-    static Double diferencaAliquota;
-    static Double vRateioEntrada;
-    static Double vComplemento;
+    static double multiplicadorValorFornec; //multiplicador para aplicar no valor da nf para chegar no preço do fornecedor ex. x2
+    static double vProdNf;
+    static double diferencaAliquota;
+    static double vRateioEntrada;
+    static double vComplemento;
     static double valorForcedor;
     
     //VALORES PERCENTUAIS
@@ -32,7 +32,12 @@ public class Calculo {
     
     static double percentual;
     
-    
+    //RESULTADOS QUE SERÃO MOSTRADOS NA TELA
+    double valorTotalProdutos;
+    double valorTotalRateio;
+    double valorTotalComplemento;
+    Resultado resultado;
+        
     //VARIAVEIS AUXILIARES
     static double parcial1;
     static double parcial2;
@@ -40,9 +45,13 @@ public class Calculo {
     static double parcial4;
     
     ImpostoProduto impostoProduto;
-    CalcularImposto calcularImposto;
-    
-    public void calcular (List <ImpostoProduto> listaTotalProdutosIpi) {
+    SepararPorImposto calcularImposto;
+        
+    public Resultado calcular (List <ImpostoProduto> listaTotalProdutosIpi) {
+        
+        valorTotalProdutos = 0;
+        valorTotalRateio = 0;
+        resultado = new Resultado();
         
         //VALORES FIXOS  
         icmsInterno = 18.0 / 100;   
@@ -52,12 +61,14 @@ public class Calculo {
         outrasDespesas = 0.0;
         
         
-        icmsInterestadual = 4.0 /100;        
+        icmsInterestadual = 4 /100;        
         
-        multiplicadorValorFornec = 2.0;       
+        multiplicadorValorFornec = 2.6086707;       
         
         
         for(ImpostoProduto ip: listaTotalProdutosIpi){
+            
+            valorTotalProdutos += ip.getValorTotalProdutos();
             
             ipi = Double.parseDouble(ip.getAliqIpi()) / 100;
             vProdNf = ip.getValorTotalProdutos();
@@ -103,15 +114,22 @@ public class Calculo {
             //CALCULO COMPLEMENTO DE ALIQUOTA
             vComplemento = valorForcedor - (vProdNf + (vProdNf * freteNf) + 
                     ((vProdNf + (vProdNf * freteNf)) * ipi));
-
+            
+            valorTotalRateio += vRateioEntrada;
+            valorTotalComplemento += vComplemento;
+            
             System.out.println("AlIQUOTA = " + ip.getAliqIpi());
             System.out.println("VALOR DOS PRODUTOS NA NF = " + ip.getValorTotalProdutos());
             System.out.printf("DIFERENÇA DE ALIQUOTA = %.2f \n" , diferencaAliquota);        
             System.out.printf("RATEIO = %.2f \n" , vRateioEntrada);        
             System.out.printf("PERCENTUAL = %.3f \n" , percentual);
             System.out.printf("COMPLEMENTO = %.2f \n" , vComplemento);
-        }       
+        }               
         
+        resultado.setRateio(valorTotalRateio);
+        resultado.setValorTotalProdutos(valorTotalProdutos);
+        
+        return resultado;
     }
     
     

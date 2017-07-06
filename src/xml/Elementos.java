@@ -32,27 +32,15 @@ public class Elementos {
     List <Element> icmsCstElement= null;
     List <Element> itensIcmsStElementlIST = null;
     Element ipiElement = null;
-    List <Element> ipiTrib = null;
-    
-    //RETORNA A LISTA DE OBJETOS PRODUTO, QUE FORAM EXTRAÍDOS DO XML
-    public List<Produto> obterProdutos(){
-        
-        List <Element> listProd;
-        
-        listProd = separarElementos();
-                
-        listaProdutosObj = montarListaProdutos(listProd);
-        
-        return listaProdutosObj;
-    }
+    List <Element> ipiTrib = null;      
     
     //FAZ A SEPARAÇÃO DAS TAGS E ELEMENTOS DO XML
-    public List<Element> separarElementos () {
+    public List<Element> separarElementos (String cainhoArquiho) {
                         
         Document doc = null;
         SAXBuilder builder = new SAXBuilder();
         try {//arquivo XML
-            doc = builder.build("arquivo.xml");
+            doc = builder.build(cainhoArquiho);
         } catch (JDOMException e) {
             e.printStackTrace();
         } catch (IOException e) {
